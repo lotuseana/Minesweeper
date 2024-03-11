@@ -136,8 +136,6 @@ public class MSButton
           }
         }
       }
-      System.out.println("flagged  "+ countFlagged);
-      System.out.println("mines  "+ countMines(myRow, myCol));
       if (countFlagged==countMines(myRow, myCol)) {
         for (int i = myRow-1; i<=myRow+1; i++) {
           for (int j = myCol-1; j<=myCol+1; j++) {
