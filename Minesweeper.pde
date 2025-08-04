@@ -131,7 +131,7 @@ public class MSButton
       int countFlagged =0;
       for (int i =myRow-1; i<=myRow+1; i++) {
         for (int j=myCol-1; j<=myCol+1; j++) {
-          if (buttons[i][j].flagged) {
+          if (isValid (i,j) && buttons[i][j].flagged) {
             countFlagged++;
           }
         }
@@ -152,7 +152,7 @@ public class MSButton
   public void mousePressed () 
   {
     clickAmt=0;
-    if (mouseButton!=RIGHT) {
+    if (!flagged && mouseButton!=RIGHT) {
       clicked = true;
       for (int i =0; i<NUM_ROWS;i++){
     for (int j=0; j<NUM_COLS; j++){
@@ -165,7 +165,7 @@ public class MSButton
 
     if (mouseButton ==RIGHT&&!clicked) {
       flagged = !flagged;
-    } else if (mines.contains(this)) {
+    } else if (!flagged && mines.contains(this)) {
       displayLosingMessage();
       alive = false;
       System.out.print(alive);
